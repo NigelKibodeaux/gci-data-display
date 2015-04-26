@@ -1,7 +1,9 @@
 extends layout
 
 block content
+  div(id='detail-chart')
     script.
         var total = #{total}
     #left
+    script(src='/javascripts/gci_fixer.js')
     !{table}
