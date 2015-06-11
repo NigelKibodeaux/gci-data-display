@@ -64,6 +64,7 @@ function fetch_internet_detail_row_data($table){
 
 
 function build_internet_detail_chart(){
+  var TOTAL_BANDWIDTH = 150;
   date_range      = [];
   upload_values   = [];
   download_values = [];
@@ -77,7 +78,7 @@ function build_internet_detail_chart(){
     total_values.push(item.total);
   });
 
-
+  var daily_bandwidth = TOTAL_BANDWIDTH / date_range.length;
   options = stacked_chart_options(  'detail-chart',
                                     [
                                         {
@@ -86,7 +87,7 @@ function build_internet_detail_chart(){
                                         },
                                         {
                                             name: 'Average',
-                                            data:[ [0,0], [date_range.length-1, 150] ],
+                                            data:[ [0,daily_bandwidth], [date_range.length-1, TOTAL_BANDWIDTH] ],
                                             type:'line',
                                             marker: {
                                                 enabled: false
