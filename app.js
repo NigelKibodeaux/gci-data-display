@@ -9,6 +9,10 @@ var routes = require('./routes/index');
 
 var app = express();
 
+// check for required environment variables
+if (!process.env.UNAME || !process.env.PASS)
+    throw new Error('You must specify UNAME and PASS in environment variables')
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
