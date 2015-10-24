@@ -8,7 +8,10 @@ block content
 
     #left
 
-    p(style="text-align:center;font-size:.8em") Updated: #{last_scrape}
+    p Checked: #{last_scrape_date}
+
+    form(method='POST')
+        button Get Fresh Data
 
     div !{table}
 

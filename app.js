@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var scrape = require('./lib/scrape');
 
 var app = express();
 
@@ -57,6 +58,16 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
+// scrape the data once per hour so it's ready
+function refreshData() {
+    console.log('scheduled task firing')
+    scrape(function(err, data) {
+        if (err) console.error(err);
+    });
+}
+setInterval(refreshData, 1000*60*60);
 
 
 module.exports = app;

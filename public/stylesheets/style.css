@@ -2,3 +2,7 @@ table { display: none; }
 body {
     font-family: sans-serif;
 }
+p, button, form {
+    text-align: center;
+    font-size: .8em;
+}
