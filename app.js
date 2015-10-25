@@ -63,7 +63,7 @@ app.use(function(err, req, res, next) {
 // scrape the data once per hour so it's ready
 function refreshData() {
     console.log('scheduled task firing')
-    scrape(function(err, data) {
+    scrape(0, function(err, data) {
         if (err) console.error(err);
     });
 }
