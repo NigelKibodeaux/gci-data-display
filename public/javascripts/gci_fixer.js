@@ -166,4 +166,4 @@ function stacked_chart_options(render_to, data_array, x_axis){
 build_internet_detail_chart();
 
 // convert date to local time
-$('p').text(new Date($('p').text()).toLocaleString());
+$('#date').text(new Date($('#date').text()).toLocaleString());
