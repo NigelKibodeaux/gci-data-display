@@ -64,7 +64,7 @@ function fetch_internet_detail_row_data($table){
 
 
 function build_internet_detail_chart(){
-  var TOTAL_BANDWIDTH = 150;
+  // var BANDWIDTH_CAP = 250; // now set by scraping it from the page
   date_range      = [];
   upload_values   = [];
   download_values = [];
@@ -78,7 +78,7 @@ function build_internet_detail_chart(){
     total_values.push(item.total);
   });
 
-  var daily_bandwidth = TOTAL_BANDWIDTH / date_range.length;
+  var daily_bandwidth = BANDWIDTH_CAP / date_range.length;
   options = stacked_chart_options(  'detail-chart',
                                     [
                                         {
@@ -87,7 +87,7 @@ function build_internet_detail_chart(){
                                         },
                                         {
                                             name: 'Average',
-                                            data:[ [0,daily_bandwidth], [date_range.length-1, TOTAL_BANDWIDTH] ],
+                                            data:[ [0,daily_bandwidth], [date_range.length-1, BANDWIDTH_CAP] ],
                                             type:'line',
                                             marker: {
                                                 enabled: false
@@ -128,7 +128,7 @@ function stacked_chart_options(render_to, data_array, x_axis){
         },
         yAxis: {
             min: 0,
-            max: 150,
+            max: BANDWIDTH_CAP,
             title: {
               text: ''
             },

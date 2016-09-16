@@ -2,3 +2,5 @@
 node_modules/
 
 start_script.sh
+
+processes.json

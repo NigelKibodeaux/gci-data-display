@@ -12,10 +12,13 @@ function renderPage(age_limit, req, res, next) {
             .match(/<table id="internet-detail-usage">[\s\S]+?<\/table>/)[0]
         var total = data.data
             .match(/<span class="total">([^<]+)<\/span>/)[1]
+        var cap = data.data
+            .match(/<span class=['"]cap['"]>([^<]+)<\/span>/)[1]
 
         res.render('index', {
-            table: table,
-            total: total,
+            table,
+            total,
+            cap,
             last_scrape_date: data.date,
         })
     })
