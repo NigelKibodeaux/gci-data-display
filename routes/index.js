@@ -16,9 +16,9 @@ function renderPage(age_limit, req, res, next) {
             .match(/<span class=['"]cap['"]>([^<]+)<\/span>/)[1]
 
         res.render('index', {
-            table,
-            total,
-            cap,
+            table: table,
+            total: total,
+            cap: cap,
             last_scrape_date: data.date,
         })
     })
