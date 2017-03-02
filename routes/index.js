@@ -13,7 +13,7 @@ function renderPage(age_limit, req, res, next) {
         var total = data.data
             .match(/<span class="total">([^<]+)<\/span>/)[1]
         var cap = data.data
-            .match(/<span class=['"]cap['"]>(.+)GB \(.+GB\)<\/span>/)[1]
+            .match(/<span class=['"]cap['"]>(.+)<\/span>/)[1]
 
         res.render('index', {
             table: table,
