@@ -98,7 +98,7 @@ function build_internet_detail_chart(){
 
   chart = new Highcharts.Chart(options);
   $('.highcharts-container>svg>text>tspan').remove();
-  var left = Math.round((150 - total)/dates.diff_days*100)/100;
+  var left = Math.round((BANDWIDTH_CAP - total)/dates.diff_days*100)/100;
   $('#left').text(left + 'GB per day left')
 
 }//end build_shared_mobile_detail_chart
