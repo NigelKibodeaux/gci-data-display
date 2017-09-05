@@ -4,3 +4,5 @@ node_modules/
 start_script.sh
 
 processes.json
+
+npm-debug.log
