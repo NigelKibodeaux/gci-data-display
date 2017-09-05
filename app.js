@@ -11,8 +11,8 @@ var scrape = require('./lib/scrape');
 var app = express();
 
 // check for required environment variables
-if (!process.env.UNAME || !process.env.PASS)
-    throw new Error('You must specify UNAME and PASS in environment variables')
+if (!process.env.UNAME || !process.env.PASS || !process.env.MAC)
+    throw new Error('You must specify UNAME, PASS, and MAC in environment variables')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
